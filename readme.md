@@ -35,7 +35,7 @@ who is able to add/delete/edit books/authors`
 - `FRONTEND`
   - `HTML`
   - `CSS`
-  - `JavaScrip`
+  - `JavaScript`
 
 - `Git and GitHub`
 
