@@ -1,0 +1,21 @@
+[
+  {
+    "model": "library.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "surname": "Ronald Reuel Tolkien",
+      "date_of_birth": "1982-09-03",
+      "date_of_death": "1973-09-02",
+      "country": 1,
+      "biography": "dfdsafasdfdsafdsafasfdafa velkej lofas asdhjfladksjlhj;flasd jf;lkdsajf;lsdan;vlkna;sd f;ilkadsn v;kj xclioufhsl kjfn badsl kvjnba;sldkjvn;alsdnf xck,j v;liokasdn f;vlasdn cvkcsnxvnp;oiuasddf;ladsnlkfn ads;l;.ksjafn;olhn;/ashd;fojncxklj,vn ;aoisder hjpfoiasd jf;iklodsn;fasnf[osadijnmfolikasdfnv;aosdifjhnv;sdfjd;safjinoasd"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 1,
+    "fields": {
+      "name": "Great Britain"
+    }
+  }
+]
