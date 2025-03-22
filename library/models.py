@@ -21,6 +21,14 @@ class Author(Model):
     country = ForeignKey("Country", null=True, blank=True, on_delete=SET_NULL, related_name='authors')
     biography = TextField(null=True, blank=True)
 
+    class Meta:
+        ordering = ['surname', 'first_name']
+
+    def __repr__(self):
+        return f"Author(first_name={self.first_name}, surname={self.surname})"
+
+    def __str__(self):
+        return f"{self.first_name} {self.surname} ({self.date_of_birth})"
 
 class Book(Model):
     title_orig = CharField(max_length=100,null=False, blank=False)
