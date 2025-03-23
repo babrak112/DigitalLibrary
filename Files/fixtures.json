@@ -14,15 +14,256 @@
     }
   },
   {
+    "model": "library.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Historical"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Romance"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 5,
+    "fields": {
+      "name": "Drama"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 6,
+    "fields": {
+      "name": "Fiction"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 7,
+    "fields": {
+      "name": "Dystopian"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 8,
+    "fields": {
+      "name": "Classic"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 9,
+    "fields": {
+      "name": "Adventure"
+    }
+  },
+  {
     "model": "library.author",
     "pk": 1,
     "fields": {
-      "first_name": "John",
-      "surname": "Ronald Reuel Tolkien",
+      "first_name": "J. R. R.",
+      "surname": "Tolkien",
       "date_of_birth": "1982-09-03",
       "date_of_death": "1973-09-02",
       "country": 1,
-      "biography": "dfdsafasdfdsafdsafasfdafa velkej lofas asdhjfladksjlhj;flasd jf;lkdsajf;lsdan;vlkna;sd f;ilkadsn v;kj xclioufhsl kjfn badsl kvjnba;sldkjvn;alsdnf xck,j v;liokasdn f;vlasdn cvkcsnxvnp;oiuasddf;ladsnlkfn ads;l;.ksjafn;olhn;/ashd;fojncxklj,vn ;aoisder hjpfoiasd jf;iklodsn;fasnf[osadijnmfolikasdfnv;aosdifjhnv;sdfjd;safjinoasd"
+      "biography": "General energy economic TV less fish human. Recent leader pattern whom necessary though road. Rate career win instead special. Capital debate several popular find message maintain which. Look here pick edge least son state hour."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Harper",
+      "surname": "Lee",
+      "date_of_birth": "1960-10-15",
+      "date_of_death": "2024-10-07",
+      "country": 2,
+      "biography": "Skin build carry from lead right attack. Heavy beyond form past impact guy race camera. Visit even present treatment message recently.Phone manage much still. Fill administration call. Democratic imagine use who decide. Whether eye special us off while long. Former throw produce public low."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Jane",
+      "surname": "Austen",
+      "date_of_birth": "1955-01-21",
+      "date_of_death": "2016-02-14",
+      "country": 4,
+      "biography": "Appear scene room result imagine. Process past police market big.\\nSpeak outside fine single difference performance. Already pattern officer the material student. Add go face great. Financial some team produce cover cup ask benefit."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "George",
+      "surname": "Orwell",
+      "date_of_birth": "1969-12-02",
+      "date_of_death": null,
+      "country": 3,
+      "biography": "Close specific key her Mrs. How tell good mission writer quickly. Ten machine recognize agree candidate suggest. Collection chair thank bag pull evidence somebody treatment. Certain check us challenge why beautiful."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 5,
+    "fields": {
+      "first_name": "Charlotte",
+      "surname": "Brontë",
+      "date_of_birth": "1962-02-26",
+      "date_of_death": "2000-02-21",
+      "country": 7,
+      "biography": "Section which process first enter somebody. If finally player quite this. Anyone life book involve. Loss allow address citizen left in. Include population past economic general industry finish. Test during history way. Kitchen have situation decide girl. Sign career machine drop concern."
+      }
+  },
+  {
+    "model": "library.author",
+    "pk": 6,
+    "fields": {
+      "first_name": "F. Scott",
+      "surname": "Fitzgerald",
+      "date_of_birth": "1942-04-02",
+      "date_of_death": null,
+      "country": 4,
+      "biography": "Factor if media sign its them. Six relationship public region control policy worker. Find four have kid identify discuss time. Key arrive then everyone. Guy interesting air explain capital owner card. Window bit than evidence hotel agent side. New fall house own laugh cut."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 7,
+    "fields": {
+      "first_name": "Alexandre",
+      "surname": "Dumas",
+      "date_of_birth": "1950-05-04",
+      "date_of_death": "2015-03-03",
+      "country": 9,
+      "biography": "Instead contain bad. Situation new son production office respond. Want much property. Clear before maybe president. During many describe role else off dog whether. Agency blue total analysis. Lay too these plan. Out peace suddenly nearly trial. Suffer operation including side experience rest easy. Position term security stock. List current first central side. Service have alone enjoy."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 8,
+    "fields": {
+      "first_name": "J.D.",
+      "surname": "Salinger",
+      "date_of_birth": "1950-12-21",
+      "date_of_death": "2001-03-26",
+      "country": 5,
+      "biography": "Student production attack nothing trip. Eye north little occur. Report score law. Between phone particular end join remain. Light space mean stand quality industry never. Decade group now easy. Check main admit per property. Even drug can range. Building like relate forward although not."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 9,
+    "fields": {
+      "first_name": "Ray",
+      "surname": "Bradbury",
+      "date_of_birth": "1933-06-11",
+      "date_of_death": "2009-10-18",
+      "country": 6,
+      "biography": "Oil senior throw democratic raise just he. Bar operation room feeling send top join. Keep subject low physical last these get. Why religious audience senior show. Nothing much news before despite remember. Long between because write level participant. Determine spend exactly long final certainly south building."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 10,
+    "fields": {
+      "first_name": "Fyodor",
+      "surname": "Dostoevsky",
+      "date_of_birth": "1933-06-11",
+      "date_of_death": "2009-10-18",
+      "country": 8,
+      "biography": "Pass collection small hit. Tend report generation economic. Especially blood leave threat hope arm. How guess charge me market manager. Range form heavy every western find church. Level teacher age nation task we throughout. Century town mind window contain."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 11,
+    "fields": {
+      "first_name": "Aldous",
+      "surname": "Huxley",
+      "date_of_birth": "1957-06-21",
+      "date_of_death": null,
+      "country": 8,
+      "biography": "Line trade notice camera. Everybody field thought paper. Staff whole child body. Probably woman he attorney first rule involve. Mr common rate near federal account. Provide thus record bar Republican. And let final large new also carry baby."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 12,
+    "fields": {
+      "first_name": "Mark",
+      "surname": "Twain",
+      "date_of_birth": "1931-08-25",
+      "date_of_death": null,
+      "country": 1,
+      "biography": "Just pattern family simple certain. Certainly well other rate ground actually. Travel serious song party assume news painting. Speak sound oil leg. Important truth old station outside happy everything model."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 13,
+    "fields": {
+      "first_name": "Herman",
+      "surname": "Melville",
+      "date_of_birth": "1963-02-18",
+      "date_of_death": null,
+      "country": 5,
+      "biography": "Start pull recent imagine reflect strategy. Prevent seek add any hair. Role subject computer. Community require entire house trade successful bank."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 14,
+    "fields": {
+      "first_name": "Leo",
+      "surname": "Tolstoy",
+      "date_of_birth": "1931-10-23",
+      "date_of_death": "2007-07-18",
+      "country": 6,
+      "biography": "Billion similar team two discuss customer. Mean view model white house. Debate room shoulder cause. Apply try scientist enough within. Yes hard father stop. Measure cost east follow until. Partner build lawyer move including service stand education. Claim exactly cell everybody."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 15,
+    "fields": {
+      "first_name": "",
+      "surname": "Homer",
+      "date_of_birth": "1272-03-21",
+      "date_of_death": "1296-01-19",
+      "country": 9,
+      "biography": "Biggest fan of Zdena Studenkova and Eva Mazikova."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 16,
+    "fields": {
+      "first_name": "Victor",
+      "surname": "Hugo",
+      "date_of_birth": "1947-01-01",
+      "date_of_death": "2007-02-02",
+      "country": 8,
+      "biography": "Biggest fan of Zdena Studenkova and Eva Mazikova."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 17,
+    "fields": {
+      "first_name": "Oscar",
+      "surname": "Wilde",
+      "date_of_birth": "1942-04-09",
+      "date_of_death": "1983-10-27",
+      "country": 1,
+      "biography": "Manager region else. Finally leader figure analysis customer. Relate or member. Civil country current. Process short join together film better lead. Only able amount. Pick data dream account set white pretty. Machine baby yeah fight recognize bill apply."
     }
   },
   {
@@ -51,10 +292,238 @@
     }
   },
   {
+    "model": "library.book",
+    "pk": 2,
+    "fields": {
+      "title_orig": "To Kill a Mockingbird",
+      "title_cz": "Nezabíjajte vtáčika",
+      "ISBN": "9781900024976",
+      "language": "English",
+      "number_of_pages": "743",
+      "format": "178 x 121",
+      "year_published": 1928,
+      "publisher": "Browning, Francis and Vasquez",
+      "description": "Happen computer history sometimes. Produce deal star land accept board. East generation sea study meet age. Visit store know reflect body. Two moment country goal development. Where leader focus article assume hair some traditional. Final list card even at modern. Fact agency science agree box response benefit. North many position success save high animal seek. Anyone break class activity.",
+      "book_type": "Novel",
+      "weight": 407,
+      "cover": "Soft",
+      "authors": [
+        2
+      ],
+      "genres": [
+        9
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 3,
+    "fields": {
+      "title_orig": "Pride and Prejudice",
+      "title_cz": "Pycha a predsudok",
+      "ISBN": "9780574115065",
+      "language": "English",
+      "number_of_pages": "550",
+      "format": "168 x 123",
+      "year_published": 1866,
+      "publisher": "Jones Ltd",
+      "description": "Main Democrat whole the. Money whole magazine letter. Good thousand be police great region but. Better explain detail. Thing with reason energy. Method Mr evening follow tonight. Like turn state. Carry son identify drug. Expect field resource. A ask language modern draw red list. Position activity write. Later anyone still world soldier site.",
+      "book_type": "Novel",
+      "weight": 407,
+      "cover": "Ebook",
+      "authors": [
+        3
+      ],
+      "genres": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 4,
+    "fields": {
+      "title_orig": "1984",
+      "title_cz": "1984",
+      "ISBN": "9780117202948",
+      "language": "English",
+      "number_of_pages": "746",
+      "format": "177 x 123",
+      "year_published": 1994,
+      "publisher": "Moore, Foley and Collier",
+      "description": "I others garden our game. Threat region new day concern television. Third dark push improve fall hour view back. Might window professional type become herself indeed. Ok professional data bag beat organization official type. Allow health field group blue really. Affect my teach face. Safe yeah wear participant project modern else four.",
+      "book_type": "Poetry",
+      "weight": 520,
+      "cover": "Hard",
+      "authors": [
+        4
+      ],
+      "genres": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 5,
+    "fields": {
+      "title_orig": "Jane Eyre",
+      "title_cz": "Jane Eyrová",
+      "ISBN": "9780818291159",
+      "language": "English",
+      "number_of_pages": "429",
+      "format": "177 x 123",
+      "year_published": 1934,
+      "publisher": "Mueller and Sons",
+      "description": "Race else with who. Chair describe media wear term. Six according already father why. Guy wind air be. Billion big hand firm peace talk. Tv writer water age. Music personal television stage final. Mean majority game sister mention. Foreign level enough day word. Race close possible require example production one. Ever many herself remember season interesting. Can page decision pressure become.",
+      "book_type": "Poetry",
+      "weight": 520,
+      "cover": "Ebook",
+      "authors": [
+        5
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 6,
+    "fields": {
+      "title_orig": "The Great Gatsby",
+      "title_cz": "Velky Gatsby",
+      "ISBN": "9781252143271",
+      "language": "English",
+      "number_of_pages": "669",
+      "format": "173 x 223",
+      "year_published": 1861,
+      "publisher": "Fuller, White and Mckinney",
+      "description": "Education each sport rest blood society. Its same month into. Generation speak nature out trial. Address realize real trouble at artist. Group collection director could everyone after side. Officer age food various significant. Describe strategy dog record likely admit. Me newspaper off evening because. House sea part hot point forget.",
+      "book_type": "Short story",
+      "weight": 337,
+      "cover": "Hard",
+      "authors": [
+        6
+      ],
+      "genres": [
+        2,
+        7
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 7,
+    "fields": {
+      "title_orig": "Animal Farm",
+      "title_cz": "Zvieracia farma",
+      "ISBN": "9700218899450",
+      "language": "English",
+      "number_of_pages": "310",
+      "format": "133 x 223",
+      "year_published": 1994,
+      "publisher": "Cardenas-Mills",
+      "description": "Stock government it city space people. Fish watch population explain fast. In miss claim education receive point. Third yes vote meet general. Bad Congress spring forget later single. Well speak too young fill. Inside point stop majority simple economy energy. Detail between option present pretty consider.",
+      "book_type": "Play",
+      "weight": 686,
+      "cover": "Soft",
+      "authors": [
+        4
+      ],
+      "genres": [
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 8,
+    "fields": {
+      "title_orig": "The Count of Monte Cristo",
+      "title_cz": "Grof Monte Cristo",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": "327",
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
+      "authors": [
+        7
+      ],
+      "genres": [
+        2,
+        3
+      ]
+    }
+  },
+  {
     "model": "library.country",
     "pk": 1,
     "fields": {
-      "name": "Great Britain"
+      "name": "United Kingdom"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 2,
+    "fields": {
+      "name": "Spain"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 3,
+    "fields": {
+      "name": "Germany"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 4,
+    "fields": {
+      "name": "United States"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 5,
+    "fields": {
+      "name": "Russia"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 6,
+    "fields": {
+      "name": "Italy"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 7,
+    "fields": {
+      "name": "France"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 8,
+    "fields": {
+      "name": "Czech Republic"
+    }
+  },
+  {
+    "model": "library.country",
+    "pk": 9,
+    "fields": {
+      "name": "Slovakia"
     }
   }
 ]
