@@ -1,5 +1,19 @@
 [
   {
+    "model": "library.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Sci-fi"
+    }
+  },
+  {
+    "model": "library.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Fantasy"
+    }
+  },
+  {
     "model": "library.author",
     "pk": 1,
     "fields": {
@@ -9,6 +23,31 @@
       "date_of_death": "1973-09-02",
       "country": 1,
       "biography": "dfdsafasdfdsafdsafasfdafa velkej lofas asdhjfladksjlhj;flasd jf;lkdsajf;lsdan;vlkna;sd f;ilkadsn v;kj xclioufhsl kjfn badsl kvjnba;sldkjvn;alsdnf xck,j v;liokasdn f;vlasdn cvkcsnxvnp;oiuasddf;ladsnlkfn ads;l;.ksjafn;olhn;/ashd;fojncxklj,vn ;aoisder hjpfoiasd jf;iklodsn;fasnf[osadijnmfolikasdfnv;aosdifjhnv;sdfjd;safjinoasd"
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 1,
+    "fields": {
+      "title_orig": "The Fellowship of the Ring",
+      "title_cz": "Společenstvo Prstenu",
+      "ISBN": "9780008537777",
+      "language": "English",
+      "number_of_pages": "576",
+      "format": "178 x 111",
+      "year_published": 2022,
+      "publisher": "Penguin Books",
+      "description": "In a quiet village in the Shire, young Frodo is about to receive a gift that will change his life forever.\r\n\r\nThought lost centuries ago, it is the One Ring, an object of terrifying power once used by the Dark Lord to enslave Middle-earth. Now darkness is rising, and Frodo must travel deep into the Dark Lord's realm, to the one place the Ring can be destroyed: Mount Doom. The journey will test Frodo's courage, his friendships and his heart. Because the ring corrupts all who bear it - can Frodo destroy it, or will it destroy him?",
+      "book_type": "Novel",
+      "weight": 300,
+      "cover": "Hard",
+      "authors": [
+        1
+      ],
+      "genres": [
+        2,
+        1
+      ]
     }
   },
   {
