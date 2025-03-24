@@ -15,8 +15,8 @@
                               <ul class="menu-area-main">
                                  {% comment %}<li class="active"> <a href="{% url 'home' %}">Home</a> </li>{% endcomment %}
                                  <li class="active"> <a href="{% url 'about' %}">About</a> </li>
-                                 <li class="active"> <a href="books.html">Naše knížky</a></li>
-                                 <li><a href="authors.html">Autoři</a></li>
+                                 <li class="active"> <a href="{% url 'book-list' %}">Library</a></li>
+                                 <li class="active"> <a href="{% url 'author-list' %}">Authors</a></li>
                                  {% comment %}<li><a href="#">Kontakty</a></li> {% endcomment %}
                                  <li class="mean-last"> <a href="#"><img src="/static/library/images/search_icon.png" alt="#" /></a> </li>
                                  <li class="mean-last"> <a href="#"><img src="/static/library/images/top-icon.png" alt="#" /></a> </li>

@@ -10,7 +10,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-
 class BookDetailView(DetailView):
     model = Book
     context_object_name = 'book'
@@ -31,6 +30,7 @@ class AuthorListView(ListView):
     model = Author
     context_object_name = 'authors'
     template_name = 'authors.html'
+
 
 
 
