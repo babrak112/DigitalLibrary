@@ -25,9 +25,12 @@
             <h1> {{ genre }}</h1>
             <ul>
             {% for book in genre.books.all %}
-                <li>href="{% url 'book' book.id %}">{{ book }}</li>
+                <li><a href="{% url 'book' book.id %}"><a/>{{ book }}</li>
             {% endfor %}
             </ul>
+        </div>
+    </div>
+
 
 
 {% endblock %}
