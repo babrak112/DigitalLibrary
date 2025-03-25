@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}
+    {{ book.title_orig }}
+{% endblock %}
+
+{% block body_class %}main-layout Books-bg{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                     <h2>Author</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>{{ author }}</h1>
+            Datum narození: {{ creator.date_of_birth }}
+                {% if creator.date_of_death %}
+                    <br>
+                    Datum úmrtí: {{ creator.date_of_death }}
+                {% endif %}
+                {% if creator.age %}
+                ({{ creator.age }})
+                {% endif %}
+                <br>
+                Národnost: {{ creator.country }}
+
+                <br>
+
+        </div>
+    </div>
+
+
+{% endblock %}

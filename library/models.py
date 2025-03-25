@@ -30,6 +30,7 @@ class Author(Model):
     def __str__(self):
         return f"{self.first_name} {self.surname} ({self.date_of_birth})"
 
+
 class Book(Model):
     title_orig = CharField(max_length=100,null=False, blank=False)
     title_cz = CharField(max_length=100,null=True, blank=True)

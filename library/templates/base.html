@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="/static/library/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/library/css/style.css">
@@ -20,13 +21,21 @@
 
 </head>
 
-<body class="main-layout home_page">
+<body class="{% block body_class %}main-layout home_page{% endblock %}">
+<!-- LOADER -->
+    <div class="loader_bg">
+        <div class="loader"><img src="/static/library/images/loading.gif" alt="#"></div>
+    </div>
 
-{% include 'navbar.html' %}
 
-{% include 'home_slider.html' %}
 
-{% include 'footer.html' %}
+<!-- HEADER -->
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+<!-- FOOTER -->
+    {% include 'footer.html' %}
 
 <!-- Javascript files-->
       <script src="/static/library/js/jquery.min.js"></script>
