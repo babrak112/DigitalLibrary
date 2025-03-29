@@ -23,9 +23,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('about/', about, name='about'),
-    path('books/', BookListView.as_view(), name='books'),
+
+    path('books/', GenreListView.as_view(), name='books'),
+    #path('books/', BookListView.as_view(), name='books'),
     path('book/<int:pk>/', BookDetailView.as_view(), name='book'),
-    path('genres/', GenreListView.as_view(), name='genres'),
+
+    #path('genres/', GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>/', GenreDetailView.as_view(), name='genre'),
 
 

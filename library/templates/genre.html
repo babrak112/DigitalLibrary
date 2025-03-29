@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Žánr: {{genre}}
+    Genre: {{genre}}
 {% endblock %}
 
 {% block body_class %}main-layout Books-bg{% endblock %}
@@ -13,7 +13,7 @@
             <div class="row">
                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttitle">
-                     <h2>List of books</h2>
+                     <h2>{{ genre }}</h2>
                   </div>
                </div>
             </div>
@@ -23,11 +23,9 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
-
-            <h1> {{ genre }}</h1>
             <ul>
             {% for book in genre.books.all %}
-                <li><a href="{% url 'book' book.id %}"></a> {{ book }}</li>
+                <li><a href="{% url 'book' book.id %}"> {{ book }} </a></li>
             {% endfor %}
             </ul>
         </div>

@@ -15,7 +15,7 @@
             <div class="row">
                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttitle">
-                     <h2>Author</h2>
+                     <h2>{{ author.first_name }} {{ author.surname }}</h2>
                   </div>
                </div>
             </div>
@@ -24,19 +24,20 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
-            <h1>{{ author }}</h1>
-            Datum narození: {{ creator.date_of_birth }}
-                {% if creator.date_of_death %}
-                    <br>
-                    Datum úmrtí: {{ creator.date_of_death }}
-                {% endif %}
-                {% if creator.age %}
-                ({{ creator.age }})
-                {% endif %}
-                <br>
-                Národnost: {{ creator.country }}
 
-                <br>
+            <h3>Date of birth:</h3>
+            <p class="pl-3"> {{ author.date_of_birth }}</p>
+<br>
+                {% if author.date_of_death %}
+                   <h3>Date of death:<h3>
+                    <p class="pl-3"> {{ author.date_of_death }}</p>
+                {% endif %}
+<br>
+            <h3>Nationality:<h3>
+            <p class="pl-3"> {{ author.country }}</p>
+<br>
+            <h3>Biography:<h3>
+            <p class="pl-3"> {{ author.biography }}</p>
 
         </div>
     </div>

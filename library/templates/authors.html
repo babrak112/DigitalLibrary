@@ -23,7 +23,7 @@
         <div class="jumbotron">
                 <ul>
                 {% for author in authors %}
-                     <li><a href="{% url 'author' author.id %}">{{ author.first_name }}</a></li>
+                     <li><a href="{% url 'author' author.id %}">{{ author.surname }} {{ author.first_name }}</a></li>
                 {% endfor %}
                 </ul>
         </div>
