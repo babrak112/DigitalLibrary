@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-    List of genres
+    List of books
 {% endblock %}
 
 {% block body_class %}main-layout Books-bg{% endblock %}
@@ -12,7 +12,7 @@
             <div class="row">
                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttitle">
-                     <h2>List of genres</h2>
+                     <h2>List of books</h2>
                   </div>
                </div>
             </div>
@@ -34,6 +34,9 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+<a href=" {% url 'book-create' %}" class="btn btn-primary">Add Book</a>
+        </div>
+    </div>
 </main>
 
 {% endblock %}

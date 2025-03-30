@@ -16,9 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from library.views import home, about, AuthorListView, BookListView, BookDetailView, GenreListView, GenreDetailView, \
-    AuthorDetailView, AuthorFormView, CountryFormView, BookFormView, GenreFormView
-
+from library.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -30,6 +28,8 @@ urlpatterns = [
 
     path('book/<int:pk>/', BookDetailView.as_view(), name='book'),
     path('book/create/', BookFormView.as_view(), name='book-create'),
+    path('book/update/<int:pk>/', BookUpdateView.as_view(), name='book-update'),
+    path('book/delete/<int:pk>/', BookDeleteView.as_view(), name='book-delete'),
 
     path('genres/', GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>/', GenreDetailView.as_view(), name='genre'),
@@ -37,5 +37,8 @@ urlpatterns = [
 
     path('authors/', AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>/', AuthorDetailView.as_view(), name='author'),
-    path('author/create/', AuthorFormView.as_view(), name='author-create'),
+    #path('author/create/', AuthorFormView.as_view(), name='author-create'),
+    path('author/create/', AuthorCreateView.as_view(), name='author-create'),
+    path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
+    path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
 ]
