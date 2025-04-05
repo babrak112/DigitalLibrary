@@ -15,20 +15,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
 from django.urls import path
 from library.views import home, about, AuthorListView, BookListView, BookDetailView, GenreListView, GenreDetailView, \
-    AuthorDetailView
+    AuthorDetailView, AuthorFormView, CountryFormView, BookFormView, GenreFormView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('about/', about, name='about'),
-    path('books/', BookListView.as_view(), name='books'),
+
+    path('country/create/', CountryFormView.as_view(), name='country-create'),
+    path('books/', GenreListView.as_view(), name='books'),
+    #path('books/', BookListView.as_view(), name='books'),
+
     path('book/<int:pk>/', BookDetailView.as_view(), name='book'),
+    path('book/create/', BookFormView.as_view(), name='book-create'),
+
     path('genres/', GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>/', GenreDetailView.as_view(), name='genre'),
-
+    path('genre/create/', GenreFormView.as_view(), name='genre-create'),
 
     path('authors/', AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>/', AuthorDetailView.as_view(), name='author'),
+    path('author/create/', AuthorFormView.as_view(), name='author-create'),
+
+    path('accounts/login/', LoginView.as_view(), name='login'),
 ]

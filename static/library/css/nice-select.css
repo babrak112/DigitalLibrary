@@ -28,6 +28,7 @@
   text-align: left !important;
   white-space: nowrap;
   font-weight: 300;
+  visibility: hidden;
 }
 
 .nice-select:after {
@@ -50,12 +51,15 @@
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
   width: 5px;
+  visibility: hidden;
 }
+
 
 .nice-select.open:after {
   -webkit-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
+  visibility: hidden;
 }
 
 .nice-select.open .list {
@@ -64,50 +68,60 @@
   -webkit-transform: scale(1) translateY(0);
   -ms-transform: scale(1) translateY(0);
   transform: scale(1) translateY(0);
+  visibility: hidden;
 }
 
 .nice-select.disabled {
   border-color: #ededed;
   color: #999;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .nice-select.disabled:after {
   border-color: #cccccc;
+  visibility: hidden;
 }
 
 .nice-select.wide {
   width: 100%;
+  visibility: hidden;
 }
 
 .nice-select.wide .list {
   left: 0 !important;
   right: 0 !important;
+  visibility: hidden;
 }
 
 .nice-select.right {
   float: right;
+  visibility: hidden;
 }
 
 .nice-select.right .list {
   left: auto;
   right: 0;
+  visibility: hidden;
 }
 
 .nice-select.small {
   font-size: 12px;
   height: 36px;
   line-height: 34px;
+  visibility: hidden;
 }
 
 .nice-select.small:after {
   height: 4px;
   width: 4px;
+  visibility: hidden;
 }
 
 .nice-select.small .option {
   line-height: 34px;
   min-height: 34px;
+  visibility: hidden;
 }
 
 .nice-select .list {
@@ -132,10 +146,12 @@
   -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   z-index: 9;
+  visibility: hidden;
 }
 
 .nice-select .list:hover .option:not(:hover) {
   background-color: transparent !important;
+  visibility: hidden;
 }
 
 .nice-select .option {
@@ -150,28 +166,34 @@
   text-align: left;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  visibility: hidden;
 }
 
 .nice-select .option:hover,
 .nice-select .option.focus,
 .nice-select .option.selected.focus {
   background-color: #f6f6f6;
+  visibility: hidden;
 }
 
 .nice-select .option.selected {
   font-weight: bold;
+  visibility: hidden;
 }
 
 .nice-select .option.disabled {
   background-color: transparent;
   color: #999;
   cursor: default;
+  visibility: hidden;
 }
 
 .no-csspointerevents .nice-select .list {
   display: none;
+  visibility: hidden;
 }
 
 .no-csspointerevents .nice-select.open .list {
   display: block;
+  visibility: hidden;
 }

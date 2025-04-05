@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-    Seznam žánrů
+    List of genres
 {% endblock %}
 
 {% block body_class %}main-layout Books-bg{% endblock %}
@@ -19,17 +19,24 @@
          </div>
       </div>
 
+<main class="main-content">
+    <div class="container">
+        <div class="jumbotron">
+            <ul>
+                {% for genre in object_list %}
+                    {% if genre.books.count%}
+                        <li><b><a href="{% url 'genre' genre.id %}">{{ genre.name }}</a>({{ genre.books.count }})</b></li>
+                        <ul class="pl-3 list-unstyled">
+                            {% for book in genre.books.all %}
+                                <li><a href="{% url 'book' book.id %}">{{ book }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
 
-    <ul>
-        {% for genre in object_list %}
-            {% if genre.books.count%}
-                <li><a href="{% url 'genre' genre.id %}">{{ genre.name }}</a>({{ genre.books.count }})</li>
-                <ul>
-                    {% for movie in genre.books.all %}
-                        <li><a href="{% url 'book' book.id %}">{{ book }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endfor %}
-    </ul>
+            </ul>
+        </div>
+    </div>
+</main>
+
 {% endblock %}
