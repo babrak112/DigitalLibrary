@@ -75,7 +75,10 @@ class AuthorModelForm(ModelForm):
         sentences = re.sub(r'\s*\.\s*', '.', initial).split('.')
         return '. '.join(sentence.capitalize() for sentence in sentences)
 
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
 
 class BookModelForm(ModelForm):
     class Meta:
@@ -84,30 +87,32 @@ class BookModelForm(ModelForm):
 
     def clean_title_orig(self):
         initial = self.cleaned_data['title_orig']
-        print(f"initial: {initial}")
-        result = initial
-        if initial:
-            result = initial.capitalize()
-            print(f"result = {result}")
-        return result
+        return initial.capitalize()
+
 
     def clean_title_cz(self):
         initial = self.cleaned_data['title_cz']
-        print(f"initial: {initial}")
-        result = initial
         if initial:
-            result = initial.capitalize()
-            print(f"result = {result}")
-        return result
+            return initial.capitalize()
+        return initial
+
+    def clean_number_of_pages(self):
+        initial = self.cleaned_data['number_of_pages']
+        if initial and initial <= 0:
+            raise ValidationError("Number of pages must be positive")
+        return initial
+
+    def clean_year_published(self):
+        initial = self.cleaned_data['year_published']
+        if initial and initial >= 2100:
+            raise ValidationError("Insert correct year")
+        return initial
 
     def clean_publisher(self):
         initial = self.cleaned_data['publisher']
-        print(f"initial: {initial}")
-        result = initial
         if initial:
-            result = initial.capitalize()
-            print(f"result = {result}")
-        return result
+            return initial.capitalize()
+        return initial
 
     def clean_description(self):
         initial = self.cleaned_data['description']
@@ -118,6 +123,10 @@ class BookModelForm(ModelForm):
             print(f"result = {result}")
         return result
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
 
 class GenreModelForm(ModelForm):
     class Meta:
@@ -126,12 +135,12 @@ class GenreModelForm(ModelForm):
 
     def clean_name(self):
         initial = self.cleaned_data['name']
-        print(f"initial: {initial}")
-        result = initial
-        if initial:
-            result = initial.capitalize()
-            print(f"result = {result}")
-        return result
+        return initial.capitalize()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
 
 class CountryModelForm(ModelForm):
     class Meta:
@@ -146,3 +155,8 @@ class CountryModelForm(ModelForm):
             result = initial.capitalize()
             print(f"result = {result}")
         return result
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
 
+from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
 from library.models import Book, Author, Genre, Country
 
@@ -28,29 +29,8 @@ class BookFormView(FormView):
     template_name = 'form.html'
     success_url = reverse_lazy('books')
 
-    def form_valid(self, form):
-        result = super().form_valid(form)
-        cleaned_data = form.cleaned_data
-        Book.objects.create(
-            title_orig=cleaned_data['title_orig'],
-            title_cz=cleaned_data['title_cz'],
-            authors=cleaned_data['authors'],
-            ISBN=cleaned_data['ISBN'],
-            genres=cleaned_data['genres'],
-            language=cleaned_data['language'],
-            number_of_pages=cleaned_data['number_of_pages'],
-            format=cleaned_data['format'],
-            year_published=cleaned_data['year_published'],
-            publisher=cleaned_data['publisher'],
-            descrption=cleaned_data['description'],
-            book_type=cleaned_data['book_type'],
-            weight=cleaned_data['weight'],
-            cover=cleaned_data['cover'],
-        )
-        return result
-
     def form_invalid(self, form):
-        print("Ej bistu, ogrcal si mi krpce")
+        print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
 class BookCreateView(CreateView):
@@ -59,23 +39,26 @@ class BookCreateView(CreateView):
     success_url = reverse_lazy('books') #maybe 'books'?
 
     def form_invalid(self, form):
-        print("Form 'BookModelForm' is invalid")
+        if DEBUG:
+            print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
 class BookUpdateView(UpdateView):
     template_name = "form.html"
     form_class = BookModelForm
     success_url = reverse_lazy('books')
-    model = Author
+    model = Book
 
     def form_invalid(self, form):
-        print("Form 'AuthorModelForm' is invalid")
+        if DEBUG:
+            print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
 class BookDeleteView(DeleteView):
     template_name = "confirm_delete.html"
     model = Book
     success_url = reverse_lazy('books')
+
 class AuthorDetailView(DetailView):
     model = Author
     context_object_name = 'author'
@@ -167,8 +150,9 @@ class GenreFormView(FormView):
 #     success_url = reverse_lazy('genres') #maybe 'books'?
 #
 #     def form_invalid(self, form):
+#        if DEBUG:
 #         print("Form 'GenreModelForm' is invalid")
-#         return super().form_invalid(form)
+#        return super().form_invalid(form)
 #
 # class GenreUpdateView(UpdateView):
 #     template_name = "form.html"
@@ -188,7 +172,7 @@ class GenreFormView(FormView):
 class CountryFormView(FormView):
     form_class = CountryModelForm
     template_name = 'form.html'
-    success_url = reverse_lazy('countries')
+    success_url = reverse_lazy('genres')
 
     def form_valid(self, form):
         result = super().form_valid(form)

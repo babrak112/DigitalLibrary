@@ -27,14 +27,13 @@ urlpatterns = [
     #path('books/', BookListView.as_view(), name='books'),
 
     path('book/<int:pk>/', BookDetailView.as_view(), name='book'),
-    path('book/create/', BookFormView.as_view(), name='book-create'),
+    path('book/create/', BookCreateView.as_view(), name='book-create'),
     path('book/update/<int:pk>/', BookUpdateView.as_view(), name='book-update'),
     path('book/delete/<int:pk>/', BookDeleteView.as_view(), name='book-delete'),
 
     path('genres/', GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>/', GenreDetailView.as_view(), name='genre'),
     path('genre/create/', GenreFormView.as_view(), name='genre-create'),
-
     path('authors/', AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>/', AuthorDetailView.as_view(), name='author'),
     #path('author/create/', AuthorFormView.as_view(), name='author-create'),
