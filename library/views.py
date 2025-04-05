@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
+from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
@@ -98,6 +100,7 @@ class AuthorCreateView(CreateView):
     form_class = AuthorModelForm
     success_url = reverse_lazy('authors')
 
+
     def form_invalid(self, form):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
@@ -186,3 +189,16 @@ class CountryFormView(FormView):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
 
+def search(request):
+    if request.method == 'POST':
+        search_string = request.POST.get('search').strip()
+        if len(search_string) > 0:
+            books_title_orig = Book.objects.filter(title_orig__contains=search_string)
+            authors_first_name = Author.objects.filter(first_name__contains=search_string)
+
+            context = {'search': search_string,
+                       'books_title_orig': books_title_orig,
+                       'authors_first_name': authors_first_name
+                       }
+            return render(request, 'search.html', context)
+    return render(request, 'home.html')

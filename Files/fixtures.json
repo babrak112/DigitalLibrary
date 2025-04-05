@@ -95,7 +95,7 @@
       "date_of_birth": "1955-01-21",
       "date_of_death": "2016-02-14",
       "country": 4,
-      "biography": "Appear scene room result imagine. Process past police market big.\\nSpeak outside fine single difference performance. Already pattern officer the material student. Add go face great. Financial some team produce cover cup ask benefit."
+      "biography": "Appear scene room result imagine. Process past police market big. \\nspeak outside fine single difference performance. Already pattern officer the material student. Add go face great. Financial some team produce cover cup ask benefit. D"
     }
   },
   {
@@ -120,7 +120,7 @@
       "date_of_death": "2000-02-21",
       "country": 7,
       "biography": "Section which process first enter somebody. If finally player quite this. Anyone life book involve. Loss allow address citizen left in. Include population past economic general industry finish. Test during history way. Kitchen have situation decide girl. Sign career machine drop concern."
-      }
+    }
   },
   {
     "model": "library.author",
@@ -267,6 +267,30 @@
     }
   },
   {
+    "model": "library.author",
+    "pk": 35,
+    "fields": {
+      "first_name": "Honza",
+      "surname": "Baci",
+      "date_of_birth": "2025-04-01",
+      "date_of_death": "2025-04-04",
+      "country": null,
+      "biography": ""
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 36,
+    "fields": {
+      "first_name": "Honza1",
+      "surname": "Baci1",
+      "date_of_birth": "2025-04-01",
+      "date_of_death": "2025-04-03",
+      "country": null,
+      "biography": ""
+    }
+  },
+  {
     "model": "library.book",
     "pk": 1,
     "fields": {
@@ -274,7 +298,7 @@
       "title_cz": "Společenstvo Prstenu",
       "ISBN": "9780008537777",
       "language": "English",
-      "number_of_pages": "576",
+      "number_of_pages": 576,
       "format": "178 x 111",
       "year_published": 2022,
       "publisher": "Penguin Books",
@@ -299,7 +323,7 @@
       "title_cz": "Nezabíjajte vtáčika",
       "ISBN": "9781900024976",
       "language": "English",
-      "number_of_pages": "743",
+      "number_of_pages": 743,
       "format": "178 x 121",
       "year_published": 1928,
       "publisher": "Browning, Francis and Vasquez",
@@ -323,7 +347,7 @@
       "title_cz": "Pycha a predsudok",
       "ISBN": "9780574115065",
       "language": "English",
-      "number_of_pages": "550",
+      "number_of_pages": 550,
       "format": "168 x 123",
       "year_published": 1866,
       "publisher": "Jones Ltd",
@@ -347,7 +371,7 @@
       "title_cz": "1984",
       "ISBN": "9780117202948",
       "language": "English",
-      "number_of_pages": "746",
+      "number_of_pages": 746,
       "format": "177 x 123",
       "year_published": 1994,
       "publisher": "Moore, Foley and Collier",
@@ -372,7 +396,7 @@
       "title_cz": "Jane Eyrová",
       "ISBN": "9780818291159",
       "language": "English",
-      "number_of_pages": "429",
+      "number_of_pages": 429,
       "format": "177 x 123",
       "year_published": 1934,
       "publisher": "Mueller and Sons",
@@ -396,7 +420,7 @@
       "title_cz": "Velky Gatsby",
       "ISBN": "9781252143271",
       "language": "English",
-      "number_of_pages": "669",
+      "number_of_pages": 669,
       "format": "173 x 223",
       "year_published": 1861,
       "publisher": "Fuller, White and Mckinney",
@@ -408,8 +432,8 @@
         6
       ],
       "genres": [
-        2,
-        7
+        7,
+        2
       ]
     }
   },
@@ -421,7 +445,7 @@
       "title_cz": "Zvieracia farma",
       "ISBN": "9700218899450",
       "language": "English",
-      "number_of_pages": "310",
+      "number_of_pages": 310,
       "format": "133 x 223",
       "year_published": 1994,
       "publisher": "Cardenas-Mills",
@@ -433,8 +457,8 @@
         4
       ],
       "genres": [
-        4,
-        7
+        7,
+        4
       ]
     }
   },
@@ -446,7 +470,7 @@
       "title_cz": "Grof Monte Cristo",
       "ISBN": "780862464981",
       "language": "English",
-      "number_of_pages": "327",
+      "number_of_pages": 327,
       "format": "299 x 399",
       "year_published": 1983,
       "publisher": "Williams-Weiss",
@@ -460,6 +484,140 @@
       "genres": [
         2,
         3
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 9,
+    "fields": {
+      "title_orig": "Mortal Kombat",
+      "title_cz": null,
+      "ISBN": null,
+      "language": null,
+      "number_of_pages": null,
+      "format": null,
+      "year_published": null,
+      "publisher": null,
+      "description": "",
+      "book_type": null,
+      "weight": null,
+      "cover": null,
+      "authors": [
+        5
+      ],
+      "genres": []
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 10,
+    "fields": {
+      "title_orig": "Kombato mortaloo",
+      "title_cz": null,
+      "ISBN": null,
+      "language": null,
+      "number_of_pages": null,
+      "format": null,
+      "year_published": 12223,
+      "publisher": null,
+      "description": "",
+      "book_type": null,
+      "weight": null,
+      "cover": null,
+      "authors": [
+        36
+      ],
+      "genres": []
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 11,
+    "fields": {
+      "title_orig": "Blby a blbsi",
+      "title_cz": null,
+      "ISBN": null,
+      "language": null,
+      "number_of_pages": null,
+      "format": null,
+      "year_published": 2014,
+      "publisher": null,
+      "description": "",
+      "book_type": null,
+      "weight": null,
+      "cover": null,
+      "authors": [
+        2
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 12,
+    "fields": {
+      "title_orig": "Janko a marienka",
+      "title_cz": "Bojo",
+      "ISBN": "32131213212321a",
+      "language": "polish",
+      "number_of_pages": 123,
+      "format": "178 x 111",
+      "year_published": 1224,
+      "publisher": "Ja",
+      "description": "Sdfasdfdasfasd.af.d.asdf...aasdfa",
+      "book_type": "Novel",
+      "weight": 123,
+      "cover": "Hard",
+      "authors": [],
+      "genres": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 13,
+    "fields": {
+      "title_orig": "Asdfasdf",
+      "title_cz": null,
+      "ISBN": null,
+      "language": null,
+      "number_of_pages": null,
+      "format": null,
+      "year_published": null,
+      "publisher": null,
+      "description": "",
+      "book_type": null,
+      "weight": null,
+      "cover": null,
+      "authors": [],
+      "genres": []
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 14,
+    "fields": {
+      "title_orig": "Asdfasfasdfa",
+      "title_cz": null,
+      "ISBN": "324324321431243124",
+      "language": null,
+      "number_of_pages": null,
+      "format": null,
+      "year_published": null,
+      "publisher": null,
+      "description": "",
+      "book_type": null,
+      "weight": null,
+      "cover": null,
+      "authors": [
+        35
+      ],
+      "genres": [
+        9
       ]
     }
   },

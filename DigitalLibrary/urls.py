@@ -40,4 +40,7 @@ urlpatterns = [
     path('author/create/', AuthorCreateView.as_view(), name='author-create'),
     path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
     path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
+    path('search/', search, name='search'),
+
+
 ]
