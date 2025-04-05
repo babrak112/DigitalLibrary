@@ -26,8 +26,8 @@ class AuthorModelForm(ModelForm):
         if not initial_name or not initial_surname:
             raise ValidationError("Please enter both initial_name and initial_surname")
 
-        initial_date_of_birth = cleaned_data['date_of_birth']
-        initial_date_of_death = cleaned_data['date_of_death']
+        initial_date_of_birth = cleaned_data.get('date_of_birth')
+        initial_date_of_death = cleaned_data.get('date_of_death')
         if initial_date_of_birth and initial_date_of_death and initial_date_of_death <= initial_date_of_birth:
             raise ValidationError("Date of death cannot be before birth")
 
