@@ -38,7 +38,13 @@
 <br>
             <h3>Biography:</h3>
             <p class="pl-3"> {{ author.biography }}</p>
-
+<br>
+<br>
+<br>
+            {% if user.is_authenticated %}
+                <a href=" {%  url 'author-update' author.id %}" class="btn btn-primary">Update</a>
+                <a href=" {%  url 'author-delete' author.id %}" class="btn btn-danger">Delete</a>
+            {% endif %}
         </div>
     </div>
 </main>

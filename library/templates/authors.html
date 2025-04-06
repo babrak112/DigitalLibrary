@@ -26,6 +26,9 @@
                      <li><a href="{% url 'author' author.id %}">{{ author.surname }} {{ author.first_name }}</a></li>
                 {% endfor %}
                 </ul>
+        {% if user.is_authenticated %}
+            <a href=" {% url 'author-create' %}" class="btn btn-primary">Add Author</a>
+        {% endif %}
         </div>
     </div>
 </main>

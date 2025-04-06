@@ -1,7 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.template.context_processors import request
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView, FormView
+from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
+from django_addanother.widgets import AddAnotherWidgetWrapper
 
+from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
 from library.models import Book, Author, Genre, Country
 
@@ -23,7 +27,7 @@ class BookListView(ListView):
     context_object_name = 'books'
     template_name = 'books.html'
 
-class BookFormView(FormView):
+class BookFormView(LoginRequiredMixin,FormView):
     form_class = BookModelForm
     template_name = 'form.html'
     success_url = reverse_lazy('books')
@@ -42,7 +46,7 @@ class BookFormView(FormView):
             format=cleaned_data['format'],
             year_published=cleaned_data['year_published'],
             publisher=cleaned_data['publisher'],
-            descrption=cleaned_data['descrption'],
+            descrption=cleaned_data['description'],
             book_type=cleaned_data['book_type'],
             weight=cleaned_data['weight'],
             cover=cleaned_data['cover'],
@@ -50,8 +54,34 @@ class BookFormView(FormView):
         return result
 
     def form_invalid(self, form):
-        print("Ej bistu, ogrcal si mi krpce")
+        print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
+
+class BookCreateView(LoginRequiredMixin,CreateView):
+    template_name = 'form.html'
+    form_class = BookModelForm
+    success_url = reverse_lazy('books') #maybe 'books'?
+
+    def form_invalid(self, form):
+        if DEBUG:
+            print("Form 'BookModelForm' is invalid")
+        return super().form_invalid(form)
+
+class BookUpdateView(LoginRequiredMixin,UpdateView):
+    template_name = "form.html"
+    form_class = BookModelForm
+    success_url = reverse_lazy('books')
+    model = Book
+
+    def form_invalid(self, form):
+        if DEBUG:
+            print("Form 'BookModelForm' is invalid")
+        return super().form_invalid(form)
+
+class BookDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = "confirm_delete.html"
+    model = Book
+    success_url = reverse_lazy('books')
 
 class AuthorDetailView(DetailView):
     model = Author
@@ -63,6 +93,7 @@ class AuthorListView(ListView):
     context_object_name = 'authors'
     template_name = 'authors.html'
 
+""" !!!delete afterwards!!!
 class AuthorFormView(FormView):
     form_class = AuthorModelForm
     template_name = 'form.html'
@@ -84,6 +115,32 @@ class AuthorFormView(FormView):
     def form_invalid(self, form):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
+"""
+
+class AuthorCreateView(LoginRequiredMixin,CreateView):
+    template_name = 'form.html'
+    form_class = AuthorModelForm
+    success_url = reverse_lazy('authors')
+
+
+    def form_invalid(self, form):
+        print("Form 'AuthorModelForm' is invalid")
+        return super().form_invalid(form)
+
+class AuthorUpdateView(LoginRequiredMixin,UpdateView):
+    template_name = "form.html"
+    form_class = AuthorModelForm
+    success_url = reverse_lazy('authors')
+    model = Author
+
+    def form_invalid(self, form):
+        print("Form 'AuthorModelForm' is invalid")
+        return super().form_invalid(form)
+
+class AuthorDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = "confirm_delete.html"
+    model = Author
+    success_url = reverse_lazy('authors')
 
 class GenreDetailView(DetailView):
     model = Genre
@@ -95,10 +152,10 @@ class GenreListView(ListView):
     context_object_name = 'genres'
     template_name = 'genres.html'
 
-class GenreFormView(FormView):
+class GenreFormView(LoginRequiredMixin,FormView):
     form_class = GenreModelForm
     template_name = 'form.html'
-    success_url = reverse_lazy('genres')
+    success_url = reverse_lazy('books')
 
     def form_valid(self, form):
         result = super().form_valid(form)
@@ -112,10 +169,35 @@ class GenreFormView(FormView):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
 
-class CountryFormView(FormView):
+# class GenreCreateView(CreateView):
+#     template_name = 'form.html'
+#     form_class = GenreModelForm
+#     success_url = reverse_lazy('genres') #maybe 'books'?
+#
+#     def form_invalid(self, form):
+#        if DEBUG:
+#         print("Form 'GenreModelForm' is invalid")
+#        return super().form_invalid(form)
+#
+# class GenreUpdateView(UpdateView):
+#     template_name = "form.html"
+#     form_class = GenreModelForm
+#     success_url = reverse_lazy('genres')
+#     model = Author
+#
+#     def form_invalid(self, form):
+#         print("Form 'AuthorModelForm' is invalid")
+#         return super().form_invalid(form)
+#
+# class GenreDeleteView(DeleteView):
+#     template_name = "confirm_delete.html"
+#     model = Author
+#     success_url = reverse_lazy('genres')
+
+class CountryFormView(LoginRequiredMixin,FormView):
     form_class = CountryModelForm
     template_name = 'form.html'
-    success_url = reverse_lazy('countries')
+    success_url = reverse_lazy('genres')
 
     def form_valid(self, form):
         result = super().form_valid(form)
@@ -128,3 +210,17 @@ class CountryFormView(FormView):
     def form_invalid(self, form):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
+
+def search(request):
+    if request.method == 'POST':
+        search_string = request.POST.get('search').strip()
+        if len(search_string) > 0:
+            books_title_orig = Book.objects.filter(title_orig__contains=search_string)
+            authors_first_name = Author.objects.filter(first_name__contains=search_string)
+
+            context = {'search': search_string,
+                       'books_title_orig': books_title_orig,
+                       'authors_first_name': authors_first_name
+                       }
+            return render(request, 'search.html', context)
+    return render(request, 'home.html')

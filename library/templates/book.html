@@ -52,8 +52,10 @@
 <br>
                 <h3>Publisher:</h3>
                 <p class="pl-3"> {{ book.publisher }}</p>
-
-
+            {% if user.is_authenticated %}
+                <a href=" {%  url 'book-update' book.id %}" class="btn btn-primary">Update</a>
+                <a href=" {%  url 'book-delete' book.id %}" class="btn btn-danger">Delete</a>
+            {% endif %}
         </div>
     </div>
 </main>

@@ -4,8 +4,6 @@
     Form
 {% endblock %}
 
-
-
 {% block body_class %}main-layout Books-bg{% endblock %}
 
 {% block content %}
@@ -22,9 +20,9 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
-             <form method="post">
+             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <table> {{ form }}</table>
+                <table> {{ form.as_table }}</table>
                 <input type="submit" id="id_submit" value="Submit" class="btn btn-primary">
              </form>
         </div>

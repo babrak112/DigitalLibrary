@@ -28,7 +28,9 @@ class Author(Model):
         return f"Author(first_name={self.first_name}, surname={self.surname})"
 
     def __str__(self):
-        return f"{self.first_name} {self.surname} ({self.date_of_birth})"
+        if self.date_of_birth:
+            return f"{self.first_name} {self.surname} ({self.date_of_birth})"
+        return f"{self.first_name} {self.surname}"
 
 
 class Book(Model):

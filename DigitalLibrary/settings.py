@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts',
 
     'library',
+    'django_addanother'
 ]
 
 MIDDLEWARE = [
