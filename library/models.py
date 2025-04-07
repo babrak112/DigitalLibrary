@@ -1,4 +1,6 @@
+from django.core.validators import MaxValueValidator
 from django.db.models import *
+from datetime import datetime, date
 
 
 class Genre(Model):
@@ -32,6 +34,13 @@ class Author(Model):
             return f"{self.first_name} {self.surname} ({self.date_of_birth})"
         return f"{self.first_name} {self.surname}"
 
+    def date_of_birth_eu(self):
+        if self.date_of_birth:
+            return datetime.strftime(self.date_of_birth, "%d. %m. %Y")
+
+    def date_of_death_eu(self):
+        if self.date_of_death:
+            return datetime.strftime(self.date_of_death, "%d. %m. %Y")
 
 class Book(Model):
     title_orig = CharField(max_length=100,null=False, blank=False)
@@ -56,9 +65,9 @@ class Book(Model):
         return f"Book({self.title_orig})"
 
     def __str__(self):
-        return f"{self.title_orig} ({self.year_published})"
-
-
+        if self.year_published:
+            return f"{self.title_orig} ({self.year_published})"
+        return self.title_orig
 
 
 class Country(Model):

@@ -1,8 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.context_processors import request
 from django.urls import reverse_lazy
+from django.utils.html import escapejs
 from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
 from django_addanother.widgets import AddAnotherWidgetWrapper
+from django.views.generic.edit import CreateView
 
 from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
@@ -40,10 +43,16 @@ class BookCreateView(CreateView):
     form_class = BookModelForm
     success_url = reverse_lazy('books') #maybe 'books'?
 
+    def form_valid(self, form):
+        if DEBUG:
+            print("Book form is valid")
+        return super().form_valid(form)
+
     def form_invalid(self, form):
         if DEBUG:
             print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
+
 
 class BookUpdateView(UpdateView):
     template_name = "form.html"
@@ -105,6 +114,23 @@ class AuthorCreateView(CreateView):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
 
+class AuthorPopupCreateView(CreateView):
+    model = Author
+    template_name = 'author_form_popup.html'
+    form_class = AuthorModelForm
+    success_url = reverse_lazy('author-add')
+
+    def form_valid(self, form):
+        self.object = form.save()
+
+        new_id = self.object.pk
+        new_label = str(self.object)
+
+        return HttpResponse(
+            f'<script>window.opener.dismissAddAnotherPopup(window, "{escapejs(new_id)}", "{escapejs(new_label)}");</script>',
+            content_type='text/html'
+        )
+
 class AuthorUpdateView(UpdateView):
     template_name = "form.html"
     form_class = AuthorModelForm
@@ -114,6 +140,9 @@ class AuthorUpdateView(UpdateView):
     def form_invalid(self, form):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
+
+
+
 
 class AuthorDeleteView(DeleteView):
     template_name = "confirm_delete.html"
@@ -146,6 +175,23 @@ class GenreFormView(FormView):
     def form_invalid(self, form):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
+
+class GenrePopupCreateView(CreateView):
+    model = Genre
+    template_name = 'genre_form_popup.html'
+    form_class = GenreModelForm
+    success_url = reverse_lazy('genre-add')
+
+    def form_valid(self, form):
+        self.object = form.save()
+
+        new_id = self.object.pk
+        new_label = str(self.object)
+
+        return HttpResponse(
+            f'<script>window.opener.dismissAddAnotherPopup(window, "{escapejs(new_id)}", "{escapejs(new_label)}");</script>',
+            content_type='text/html'
+        )
 
 # class GenreCreateView(CreateView):
 #     template_name = 'form.html'

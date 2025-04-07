@@ -34,13 +34,13 @@ urlpatterns = [
     path('genres/', GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>/', GenreDetailView.as_view(), name='genre'),
     path('genre/create/', GenreFormView.as_view(), name='genre-create'),
+    path('genre/add/', GenrePopupCreateView.as_view(), name='genre-add'),
     path('authors/', AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>/', AuthorDetailView.as_view(), name='author'),
     #path('author/create/', AuthorFormView.as_view(), name='author-create'),
     path('author/create/', AuthorCreateView.as_view(), name='author-create'),
+    path('author/add/', AuthorPopupCreateView.as_view(), name='author-add'),
     path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
     path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
     path('search/', search, name='search'),
-
-
 ]

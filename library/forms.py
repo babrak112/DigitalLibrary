@@ -1,11 +1,15 @@
 import re
 from datetime import date
 
+from django import forms
 from django.core.exceptions import ValidationError
-from django.forms import ModelForm, NumberInput, DateField
+from django.forms import ModelForm, NumberInput, DateField, ModelMultipleChoiceField
+from django.urls import reverse_lazy
+from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
 from library.models import Country, Author, Genre, Book
+from library.widgets import SafeAddAnotherWidgetWrapper
 
 
 class AuthorModelForm(ModelForm):
@@ -127,6 +131,15 @@ class BookModelForm(ModelForm):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
+
+        self.fields['authors'].widget = SafeAddAnotherWidgetWrapper(
+            self.fields['authors'].widget,
+            reverse_lazy('author-add')
+        )
+        self.fields['genres'].widget = SafeAddAnotherWidgetWrapper(
+            self.fields['genres'].widget,
+            reverse_lazy('genre-add')
+        )
 
 class GenreModelForm(ModelForm):
     class Meta:

@@ -26,11 +26,11 @@
         <div class="jumbotron">
 
             <h3>Date of birth:</h3>
-            <p class="pl-3"> {{ author.date_of_birth }}</p>
+            <p class="pl-3"> {{ author.date_of_birth|date:"d. m. Y" }}</p>
 <br>
                 {% if author.date_of_death %}
                    <h3>Date of death:<h3>
-                    <p class="pl-3"> {{ author.date_of_death }}</p>
+                    <p class="pl-3"> {{ author.date_of_death|date:"d. m. Y" }}</p>
                 {% endif %}
 <br>
             <h3>Nationality:<h3>
