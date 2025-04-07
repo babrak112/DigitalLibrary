@@ -51,7 +51,6 @@ urlpatterns = [
     path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
     path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
     path('search/', search, name='search'),
-]
     path('author/create/', AuthorCreateView.as_view(), name='author-create'),
     path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
     path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
@@ -63,4 +62,4 @@ urlpatterns = [
     path('accounts/logout/', logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', SingUpView.as_view(), name='signup'),
-
+]
