@@ -6,6 +6,12 @@ from django.utils.html import escapejs
 from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
 from django_addanother.widgets import AddAnotherWidgetWrapper
 from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
+from django.template.context_processors import request
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
+from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
@@ -29,7 +35,7 @@ class BookListView(ListView):
     context_object_name = 'books'
     template_name = 'books.html'
 
-class BookFormView(FormView):
+class BookFormView(LoginRequiredMixin,FormView):
     form_class = BookModelForm
     template_name = 'form.html'
     success_url = reverse_lazy('books')
@@ -54,7 +60,7 @@ class BookCreateView(CreateView):
         return super().form_invalid(form)
 
 
-class BookUpdateView(UpdateView):
+class BookUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "form.html"
     form_class = BookModelForm
     success_url = reverse_lazy('books')
@@ -65,7 +71,7 @@ class BookUpdateView(UpdateView):
             print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
-class BookDeleteView(DeleteView):
+class BookDeleteView(LoginRequiredMixin,DeleteView):
     template_name = "confirm_delete.html"
     model = Book
     success_url = reverse_lazy('books')
@@ -104,7 +110,7 @@ class AuthorFormView(FormView):
         return super().form_invalid(form)
 """
 
-class AuthorCreateView(CreateView):
+class AuthorCreateView(LoginRequiredMixin,CreateView):
     template_name = 'form.html'
     form_class = AuthorModelForm
     success_url = reverse_lazy('authors')
@@ -114,7 +120,7 @@ class AuthorCreateView(CreateView):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
 
-class AuthorPopupCreateView(CreateView):
+class AuthorPopupCreateView(LoginRequiredMixin,CreateView):
     model = Author
     template_name = 'author_form_popup.html'
     form_class = AuthorModelForm
@@ -131,7 +137,7 @@ class AuthorPopupCreateView(CreateView):
             content_type='text/html'
         )
 
-class AuthorUpdateView(UpdateView):
+class AuthorUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "form.html"
     form_class = AuthorModelForm
     success_url = reverse_lazy('authors')
@@ -159,7 +165,7 @@ class GenreListView(ListView):
     context_object_name = 'genres'
     template_name = 'genres.html'
 
-class GenreFormView(FormView):
+class GenreFormView(LoginRequiredMixin,FormView):
     form_class = GenreModelForm
     template_name = 'form.html'
     success_url = reverse_lazy('books')
@@ -176,7 +182,7 @@ class GenreFormView(FormView):
         print("Ej bistu, ogrcal si mi krpce")
         return super().form_invalid(form)
 
-class GenrePopupCreateView(CreateView):
+class GenrePopupCreateView(LoginRequiredMixin,CreateView):
     model = Genre
     template_name = 'genre_form_popup.html'
     form_class = GenreModelForm
@@ -218,7 +224,7 @@ class GenrePopupCreateView(CreateView):
 #     model = Author
 #     success_url = reverse_lazy('genres')
 
-class CountryFormView(FormView):
+class CountryFormView(LoginRequiredMixin,FormView):
     form_class = CountryModelForm
     template_name = 'form.html'
     success_url = reverse_lazy('genres')

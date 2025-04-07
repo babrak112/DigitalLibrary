@@ -17,6 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from library.views import *
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import path, include
+
+from accounts.views import SubmittableLoginView, logout_view, SingUpView
+from library.views import *
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -44,3 +52,15 @@ urlpatterns = [
     path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
     path('search/', search, name='search'),
 ]
+    path('author/create/', AuthorCreateView.as_view(), name='author-create'),
+    path('author/update/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
+    path('author/delete/<int:pk>/', AuthorDeleteView.as_view(), name='author-delete'),
+    path('search/', search, name='search'),
+
+    path('accounts/login/', SubmittableLoginView.as_view(), name='login'),
+    # --- můžeme odstranit ---
+    #path('accounts/logout/', LogoutView.as_view(), name='logout'),
+    path('accounts/logout/', logout_view, name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', SingUpView.as_view(), name='signup'),
+
