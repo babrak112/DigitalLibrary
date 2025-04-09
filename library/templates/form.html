@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Form
+{% endblock %}
+
+
+
+{% block body_class %}main-layout Books-bg{% endblock %}
+
+{% block content %}
+
+
+<div class="about-bg">
+     <div class="container">
+        <div class="row">
+           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+              <div class="abouttitle">
+              </div>
+           </div>
+        </div>
+     </div>
+</div>
+<main class="main-content">
+    <div class="container">
+        <div class="jumbotron">
+             <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table> {{ form.as_table }}</table>
+                <input type="submit" id="id_submit" value="Submit" class="btn btn-primary">
+             </form>
+        </div>
+    </div>
+</div>
+</main>
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('form');
+
+    document.querySelectorAll('.related-widget-wrapper-link').forEach(button => {
+        button.addEventListener('click', () => {
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                // Convert multiselect values to CSV
+                if (data[key]) {
+                    data[key] += "," + value;
+                } else {
+                    data[key] = value;
+                }
+            });
+            localStorage.setItem('book-form-data', JSON.stringify(data));
+            console.log("Form data saved:", data);
+        });
+    });
+
+    const savedData = JSON.parse(localStorage.getItem('book-form-data'));
+    console.log("Saved data from localStorage:", savedData); // <-- add this
+    if (savedData) {
+        for (const [key, value] of Object.entries(savedData)) {
+            const field = form.elements[key];
+            if (!field) continue;
+
+            if (field.type === 'checkbox' || field.type === 'radio') {
+                field.checked = field.value === value;
+            } else if (field.tagName === 'SELECT' && field.multiple) {
+                value.split(',').forEach(val => {
+                    for (const option of field.options) {
+                        if (option.value === val) {
+                            option.selected = true;
+                        }
+                    }
+                });
+            } else {
+                field.value = value;
+            }
+        }
+
+        localStorage.removeItem('book-form-data');
+        console.log("Form data restored.");
+    }
+});
+
+if (typeof showAddAnotherPopup !== 'function') {
+    function showAddAnotherPopup(triggeringLink) {
+        const name = triggeringLink.id.replace(/^add_/, '');
+        const href = triggeringLink.href;
+        const win = window.open(href, name, 'height=500,width=800,resizable=yes,scrollbars=yes');
+        win.focus();
+        return false;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const popupLinks = document.querySelectorAll('.related-widget-wrapper-link');
+
+    popupLinks.forEach(link => {
+        if (!link.getAttribute('onclick')) {
+            link.setAttribute('onclick', 'return showAddAnotherPopup(this);');
+            console.log(" Bound popup to + button:", link);
+        }
+    });
+});
+
+
+
+function windowname_to_id(text) {
+    return text.replace(/[^a-zA-Z0-9_]/g, '_');
+}
+
+
+</script>
+{% endblock %}
+
+{% endblock %}

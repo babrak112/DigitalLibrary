@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    403 - Forbidden
+{% endblock %}
+
+{% block body_class %}main-layout Books-bg{% endblock %}
+
+{% block content %}
+
+     <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                     <h2> ERROR - 403 </h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="alert alert-danger" role="alert">
+                    <h3>You don't have permission to access this resource. For more information please contact service of this website.</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

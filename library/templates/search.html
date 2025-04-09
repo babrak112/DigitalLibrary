@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Search {{ search }}
+{% endblock %}
+
+{% block body_class %}main-layout Books-bg{% endblock %}
+
+{% block content %}
+     <div class="about-bg">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <div class="abouttitle">
+                     <h2>List of books</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+<main class="main-content">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Results for <b>'{{ search }}'</b></h1>
+            <p>Books:</p>
+                <ul>
+                    {% for book in books_title_orig %}
+                        <li>
+                        <a href="{% url 'book' book.id %}">{{ book }}</a>
+                        </li>
+                    {% empty %}
+                        No results for  {{ search }}
+                    {% endfor %}
+                </ul>
+                <br>
+                <ul>
+                <p>Authors:</p>
+                    {% for author in authors_first_name %}
+                        <li>
+                        <a href="{% url 'author' author.id %}">{{ author }}</a>
+                        </li>
+                    {% empty %}
+                        No results for  {{ search }}
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
