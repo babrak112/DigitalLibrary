@@ -1,5 +1,3 @@
-
-from django.templatetags.i18n import language
 from django.test import TestCase
 from library.models import *
 
@@ -39,7 +37,6 @@ class ModelsTest(TestCase):
         genre_comedy = Genre.objects.create(
             name="Comedy"
         )
-
         book.genres.add(genre_scifi)
         book.genres.add(genre_comedy)
 
@@ -81,7 +78,16 @@ class ModelsTest(TestCase):
         print(f'test_book_str: "{book3.__str__()}"')
         #test passed because no limit in model.py to Book/year_published, this is
         #solved in forms.py in clean_year_published - limit set to 2100, over creates
-        #validation error
+        #validation error, year set to 2100 in case of future releases
         self.assertEqual(book3.__str__(), "Nonoriginal title (2100)")
         book4 = Book.objects.get(id=4)
         self.assertEqual(book4.__str__(), "")
+
+    # def test_create_book_with_minimal_fields(self):
+    #     book = Book.objects.get(id=2)
+    #     self.assertEqual(book.title_orig, "Nonoriginal title")
+    #     self.assertEqual(str(book), "Nonoriginal title")
+    #     self.assertEqual(repr(book), "Nonoriginal title")
+    #     self.assertEqual(book.genres.count(), 1)
+    #     self.assertEqual(book.authors.count(), 0)
+
