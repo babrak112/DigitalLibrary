@@ -129,6 +129,7 @@ class AuthorPopupCreateView(PermissionRequiredMixin,CreateView):
     template_name = 'author_form_popup.html'
     form_class = AuthorModelForm
     success_url = reverse_lazy('author-add')
+    permission_required = 'library.add_author'
 
     def form_valid(self, form):
         self.object = form.save()
