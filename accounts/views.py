@@ -5,6 +5,8 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
+from accounts.forms import CustomUserCreationForm
+
 
 class SubmittableLoginView(LoginView):
     template_name = "form.html"
@@ -17,6 +19,6 @@ def logout_view(request):
 
 class SingUpView(CreateView):
     template_name = "form.html"
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm #UserCreationForm
     success_url = reverse_lazy("home")
 

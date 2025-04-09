@@ -31,8 +31,7 @@ urlpatterns = [
     path('about/', about, name='about'),
 
     path('country/create/', CountryFormView.as_view(), name='country-create'),
-    path('books/', GenreListView.as_view(), name='books'),
-    #path('books/', BookListView.as_view(), name='books'),
+    path('books/', BookListView.as_view(), name='books'),
 
     path('book/<int:pk>/', BookDetailView.as_view(), name='book'),
     path('book/create/', BookCreateView.as_view(), name='book-create'),

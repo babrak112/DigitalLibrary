@@ -1,7 +1,9 @@
 import re
 from datetime import date
 
-from django import forms
+
+from django.forms import ModelForm
+
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, NumberInput, DateField, ModelMultipleChoiceField
 from django.urls import reverse_lazy
