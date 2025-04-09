@@ -4,6 +4,8 @@
     Delete
 {% endblock %}
 
+{% block body_class %}main-layout Books-bg{% endblock %}
+
 {% block content %}
     <div class="about-bg">
          <div class="container">
@@ -25,4 +27,7 @@
             <input type="submit" value="Delete" class="btn btn-danger">
             <input type="button" value="Cancel" class="btn btn-primary" onclick="history.back()">
         </form>
+        </div>
+    </div>
+</main>
 {% endblock %}

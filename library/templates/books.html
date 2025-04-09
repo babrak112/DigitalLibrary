@@ -27,6 +27,9 @@
                      <li><a href="{% url 'book' book.id %}">{{ book.title_orig }}</a></li>
                 {% endfor %}
                 </ul>
+        {% if user.is_authenticated %}
+            <a href=" {% url 'book-create' %}" class="btn btn-primary">Add Book</a>
+        {% endif %}
         </div>
     </div>
 </main>

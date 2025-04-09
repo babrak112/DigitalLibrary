@@ -1,9 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, FormView, CreateView, UpdateView, DeleteView
-from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
 from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
@@ -27,7 +25,7 @@ class BookListView(ListView):
     context_object_name = 'books'
     template_name = 'books.html'
 
-class BookFormView(LoginRequiredMixin,FormView):
+class BookFormView(FormView):
     form_class = BookModelForm
     template_name = 'form.html'
     success_url = reverse_lazy('books')
@@ -57,31 +55,34 @@ class BookFormView(LoginRequiredMixin,FormView):
         print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
-class BookCreateView(LoginRequiredMixin,CreateView):
+class BookCreateView(PermissionRequiredMixin,CreateView):
     template_name = 'form.html'
     form_class = BookModelForm
     success_url = reverse_lazy('books') #maybe 'books'?
+    permission_required = 'library.add_book'
 
     def form_invalid(self, form):
         if DEBUG:
             print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
-class BookUpdateView(LoginRequiredMixin,UpdateView):
+class BookUpdateView(PermissionRequiredMixin,UpdateView):
     template_name = "form.html"
     form_class = BookModelForm
     success_url = reverse_lazy('books')
     model = Book
+    permission_required = 'library.change_book'
 
     def form_invalid(self, form):
         if DEBUG:
             print("Form 'BookModelForm' is invalid")
         return super().form_invalid(form)
 
-class BookDeleteView(LoginRequiredMixin,DeleteView):
+class BookDeleteView(PermissionRequiredMixin,DeleteView):
     template_name = "confirm_delete.html"
     model = Book
     success_url = reverse_lazy('books')
+    permission_required = 'library.delete_book'
 
 class AuthorDetailView(DetailView):
     model = Author
@@ -117,30 +118,33 @@ class AuthorFormView(FormView):
         return super().form_invalid(form)
 """
 
-class AuthorCreateView(LoginRequiredMixin,CreateView):
+class AuthorCreateView(PermissionRequiredMixin,CreateView):
     template_name = 'form.html'
     form_class = AuthorModelForm
     success_url = reverse_lazy('authors')
+    permission_required = 'library.add_author'
 
 
     def form_invalid(self, form):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
 
-class AuthorUpdateView(LoginRequiredMixin,UpdateView):
+class AuthorUpdateView(PermissionRequiredMixin,UpdateView):
     template_name = "form.html"
     form_class = AuthorModelForm
     success_url = reverse_lazy('authors')
     model = Author
+    permission_required = 'library.change_author'
 
     def form_invalid(self, form):
         print("Form 'AuthorModelForm' is invalid")
         return super().form_invalid(form)
 
-class AuthorDeleteView(LoginRequiredMixin,DeleteView):
+class AuthorDeleteView(PermissionRequiredMixin,DeleteView):
     template_name = "confirm_delete.html"
     model = Author
     success_url = reverse_lazy('authors')
+    permission_required = 'library.delete_author'
 
 class GenreDetailView(DetailView):
     model = Genre
