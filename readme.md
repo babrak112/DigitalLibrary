@@ -1,42 +1,82 @@
-# Project Digital library
+# Project Digital Library
 
 ## Project description
+Digital Library is an application developed in Django in Python, which will allow user to 
+search, filter, sort books in SQLite database, get information on Authors and their biography.
+It allows users with specific rights to add/edit/delete books, insert comments to books which
+will serve other readers as recommendations.
 
-Funkcionalita:
 
-- `Zoznam knih`(ISBN, zaner, jazyk, 
-pocet stran/format, datum vydani, nakladatel, popis, 
-vazba - tvrda, makka, ebok, hmotnost, preklad, hodnotenie)
+## Main Functionalities:
 
-- `detail knihy`
-  - `zoradenie knih:`
-  - `podla nazvu`
-  - `datum vydania`
-  - `podla hodnotenia`
-  - `podla stran`
+### User registration and login
+- `users are able to create accounts, log in into accounts and log out`
+- `different levels of user rights to distinguish between "read-only" user and "librarian"
+who is able to add/delete/edit books/authors`
+
+### Book administration
+
+- `add, delete, edit books in database`
+- `add, delete, edit authors in database`
+- `api to heureka - user can see where to buy the book and for what price`
+
+### Book ratings and reviews
+
+- `users are able to write their own ratings and reviews to books`
+
+## Technologies used
+- `BACKEND`
+  - `Python`
+  - `Django`
+  
+- `DATABASE`
+  - `SQLite`
+  
+- `FRONTEND`
+  - `HTML`
+  - `CSS`
+  - `JavaScript`
+
+- `Git and GitHub`
+
+## Entity-Relationship Diagram
+
+![ER_Diagram.png](Files/ER_Diagram.png)
+
+
+- `List of books`(ISBN, genre, language, 
+number of pages, format, date of publish, publisher, description, 
+book case, weight, translation, rating)
+
+- `Book detail`
+- `sort books by:`
+  - `name`
+  - `year of publish`
+  - `rating`
+  - `number of pages`
     
-- `filtrovanie knih:`
-  - `podla zanru`
-  - `podla povodu`
-  - `podla autora`
-  - `podla hodnotenie`
-  - `podla preklad`
-  - `podla ceny`
+- `books filters:`
+  - `genre`
+  - `origin`
+  - `author`
+  - `rating`
+  - `translation`
+  - `price`
   
-  - `hodnotenie knih - good to have`
-  - `vkladanie, editacia a mazanie knih`
-      - `formular`
-      - `na základe práv uzivatelov`
-  - `vkladanie, editacia a mazanie autorov`
-      - `formular`
-      - `na základe práv uzivatelov`
-  - `informacie o autoroch`
-  - `vyhladavanie`
-  - `velmi nahodne odporucanie knih - good to have`
+  - `book rating - good to have`
+  - `insert, edit and delete books`
+      - `form`
+      - `user rights`
+  - `insert, edit and delete authors`
+      - `form`
+      - `user rights`
+  - `information about author`
+  - `search`
+  - `book suggestions - good to have`
   
-## Databáze
+## Database
 
-### Modely
+### Models
 - [] genre
   - [] name
   - [] books -> ManyToMany(book)
@@ -62,8 +102,8 @@ vazba - tvrda, makka, ebok, hmotnost, preklad, hodnotenie)
   - [] date_of_birth
   - [] date_of_death
   - [] country -> ForeignKey(country)
-  - [] author -> ManyToMany(book) - ktore knihy napisal
-  - [] biography (opis zivota)
+  - [] author -> ManyToMany(book) - books author wrote
+  - [] biography (life)
 - [] book
   - [] title_orig
   - [] title_cz
@@ -80,7 +120,7 @@ vazba - tvrda, makka, ebok, hmotnost, preklad, hodnotenie)
   - [] weight
   - [] review
   - [] cover
-  - [] where to buy (good to have, heureka api - https://sluzby.heureka.cz/napoveda/marketplace-api/ pomoc od Petra)
+  - [] where to buy (good to have, heureka api - https://sluzby.heureka.cz/napoveda/marketplace-api/)
   
 
 
