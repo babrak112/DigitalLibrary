@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
-from library.models import Country, Author, Genre, Book
+from library.models import Country, Author, Genre, Book, Image
 from library.widgets import SafeAddAnotherWidgetWrapper
 
 
@@ -175,3 +175,17 @@ class CountryModelForm(ModelForm):
         super().__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
+
+
+
+class ImageModelForm(ModelForm):
+
+    class Meta:
+        model = Image
+        fields = '__all__'
+        labels = {
+            'image':'Picture',
+            'book':'Book',
+            'authors':'Authors',
+            'description':'Description',
+        }

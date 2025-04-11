@@ -15,8 +15,8 @@ from django.views.generic import DetailView, ListView, FormView, CreateView, Upd
 from django_addanother.widgets import AddAnotherWidgetWrapper
 
 from DigitalLibrary.settings import DEBUG
-from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm
-from library.models import Book, Author, Genre, Country
+from library.forms import AuthorModelForm, BookModelForm, GenreModelForm, CountryModelForm, ImageModelForm
+from library.models import Book, Author, Genre, Country, Image
 
 
 def home(request):
@@ -258,3 +258,12 @@ def search(request):
                        }
             return render(request, 'search.html', context)
     return render(request, 'home.html')
+
+
+class ImageCreateView(LoginRequiredMixin,CreateView):
+    template_name = 'form.html'
+    form_class = ImageModelForm
+    success_url = reverse_lazy('home')
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)

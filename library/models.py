@@ -82,3 +82,16 @@ class Country(Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
+class Image(Model):
+    image = FileField(upload_to='images/',default=None, null=True, blank=True)
+    book = ForeignKey(Book, on_delete=SET_NULL, null=True, blank=True, related_name='images')
+    author = ForeignKey(Author, on_delete=SET_NULL, null=True, blank=True, related_name='images')
+    description = TextField(null=True, blank=True)
+
+    def __repr__(self):
+        return f"Image(image={self.image})"
+
+    def __str__(self):
+        return f"Image:{self.image}"

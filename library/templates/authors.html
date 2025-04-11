@@ -21,14 +21,17 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
-                <ul>
-                {% for author in authors %}
-                     <li><a href="{% url 'author' author.id %}">{{ author.surname }} {{ author.first_name }}</a></li>
-                {% endfor %}
-                </ul>
-        {% if user.is_authenticated %}
-            <a href=" {% url 'author-create' %}" class="btn btn-primary">Add Author</a>
-        {% endif %}
+            <ul>
+            {% for author in authors %}
+                 <li><a href="{% url 'author' author.id %}">{{ author.surname }} {{ author.first_name }}</a></li>
+            {% endfor %}
+            </ul>
+            {% if user.is_authenticated %}
+                <a href=" {% url 'author-create' %}" class="btn btn-primary">Add Author</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                    <a href=" {% url 'image-create' %}" class="btn btn-success">Drop image</a>
+            {% endif %}
         </div>
     </div>
 </main>

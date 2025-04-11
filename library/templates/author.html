@@ -15,7 +15,7 @@
             <div class="row">
                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttitle">
-                     <h2>Author</h2>
+                     <h2>{{ author }}</h2>
                   </div>
                </div>
             </div>
@@ -24,27 +24,35 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
+            <div class="author-image">
+                    {% for image in author.images.all %}
+                         <span class="author-images">
+                            <img src="{{ image.image.url }}" alt="{{ image.description }}"
+                                 width="300" height="300" style="display: block; margin: 0 auto;">
+                         </span>
+                    {% endfor %}
 
-            <h3>Date of birth:</h3>
-            <p class="pl-3"> {{ author.date_of_birth|date:"d. m. Y" }}</p>
-<br>
-                {% if author.date_of_death %}
-                   <h3>Date of death:<h3>
-                    <p class="pl-3"> {{ author.date_of_death|date:"d. m. Y" }}</p>
+                <h3>Date of birth:</h3>
+                <p class="pl-3"> {{ author.date_of_birth|date:"d. m. Y" }}</p>
+    <br>
+                    {% if author.date_of_death %}
+                       <h3>Date of death:</h3>
+                        <p class="pl-3"> {{ author.date_of_death|date:"d. m. Y" }}</p>
+                    {% endif %}
+    <br>
+                <h3>Nationality:</h3>
+                <p class="pl-3"> {{ author.country }}</p>
+    <br>
+                <h3>Biography:</h3>
+                <p class="pl-3"> {{ author.biography }}</p>
+    <br>
+    <br>
+    <br>
+                {% if user.is_authenticated %}
+                    <a href=" {%  url 'author-update' author.id %}" class="btn btn-primary">Update</a>
+                    <a href=" {%  url 'author-delete' author.id %}" class="btn btn-danger">Delete</a>
                 {% endif %}
-<br>
-            <h3>Nationality:<h3>
-            <p class="pl-3"> {{ author.country }}</p>
-<br>
-            <h3>Biography:<h3>
-            <p class="pl-3"> {{ author.biography }}</p>
-<br>
-<br>
-<br>
-            {% if user.is_authenticated %}
-                <a href=" {%  url 'author-update' author.id %}" class="btn btn-primary">Update</a>
-                <a href=" {%  url 'author-delete' author.id %}" class="btn btn-danger">Delete</a>
-            {% endif %}
+            </div>
         </div>
     </div>
 </main>

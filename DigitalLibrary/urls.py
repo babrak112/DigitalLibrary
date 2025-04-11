@@ -14,8 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+
+from DigitalLibrary import settings
 from library.views import *
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
@@ -61,4 +64,6 @@ urlpatterns = [
     path('accounts/logout/', logout_view, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', SingUpView.as_view(), name='signup'),
-]
+    path('image/create/', ImageCreateView.as_view(), name='image-create'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
