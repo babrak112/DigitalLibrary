@@ -162,14 +162,9 @@ class CountryModelForm(ModelForm):
         model = Country
         fields = '__all__'
 
-    def clean_country_name(self):
+    def clean_name(self):
         initial = self.cleaned_data['name']
-        print(f"initial: {initial}")
-        result = initial
-        if initial:
-            result = initial.capitalize()
-            print(f"result = {result}")
-        return result
+        return initial.capitalize()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

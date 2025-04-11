@@ -68,6 +68,29 @@ class BookUpdateView(PermissionRequiredMixin,UpdateView):
     model = Book
     permission_required = 'library.change_book'
 
+    def form_valid(self, form):
+        initial = form.save(commit=False)
+
+        if initial.title_orig:
+            initial.title_orig = initial.title_orig.title()
+        if initial.title_cz:
+            initial.title_cz = initial.title_cz.title()
+        if initial.publisher:
+            initial.publisher = initial.publisher.title()
+        if initial.language:
+            initial.language = initial.language.title()
+        if initial.book_type:
+            initial.book_type = initial.book_type.title()
+        if initial.format:
+            initial.format = initial.format.title()
+        if initial.cover:
+            initial.cover = initial.cover.title()
+
+        initial.save()
+        form.save_m2m()
+
+        return super().form_valid(form)
+
     def form_invalid(self, form):
         if DEBUG:
             print("Form 'BookModelForm' is invalid")
