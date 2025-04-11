@@ -260,10 +260,11 @@ def search(request):
     return render(request, 'home.html')
 
 
-class ImageCreateView(LoginRequiredMixin,CreateView):
+class ImageCreateView(PermissionRequiredMixin,CreateView):
     template_name = 'form.html'
     form_class = ImageModelForm
     success_url = reverse_lazy('home')
+    permission_required = 'library.add_image'
 
     def form_invalid(self, form):
         return super().form_invalid(form)

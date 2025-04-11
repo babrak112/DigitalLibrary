@@ -1385,6 +1385,13 @@ ul.top_icon li a{ color: #fff;
      color: #fff;
 }
 /*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
+ .books-images {
+   display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+  gap: 10px;
+}
+
  .relative {
     position: absolute;
      right: 0;
@@ -1800,6 +1807,7 @@ margin-top: 90px;
 }
 
 .contact-page  .Contact {margin-top: 0px;}
-.contact-page .form-control  { margin-bottom: 20px;} 
+.contact-page .form-control  { margin-bottom: 20px;}
+
  
 /** slider arrow **/

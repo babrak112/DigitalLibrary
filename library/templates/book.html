@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     {{ book.title_orig }}
@@ -25,13 +26,10 @@
 <main class="main-content">
     <div class="container">
         <div class="jumbotron">
-            <div class="books-image">
+             <div class="books-images">
                 {% for image in book.images.all %}
-                     <span class="books-images">
-                        <img src="{{ image.image.url }}" alt="{{ image.description }}"
-                             width="300" height="300" style="display: block; margin: 0 auto;">
-                     </span>
-                {% endfor %}
+                        <img src="{{ image.image.url }}" alt="{{ image.description }}">
+                {% endfor %}</div>
                 <h3>Author:</h3>
                     <ul class="pl-3 list-unstyled">
                        {% for author in book.authors.all %}
@@ -61,6 +59,9 @@
                 {% if user.is_authenticated %}
                     <a href=" {%  url 'book-update' book.id %}" class="btn btn-primary">Update</a>
                     <a href=" {%  url 'book-delete' book.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <a href=" {% url 'image-create' %}" class="btn btn-success">Drop image</a>
                 {% endif %}
         </div>
     </div>
