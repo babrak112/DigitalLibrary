@@ -63,6 +63,13 @@
     }
   },
   {
+    "model": "library.genre",
+    "pk": 10,
+    "fields": {
+      "name": "Tragikomedia"
+    }
+  },
+  {
     "model": "library.author",
     "pk": 1,
     "fields": {
@@ -267,30 +274,6 @@
     }
   },
   {
-    "model": "library.author",
-    "pk": 35,
-    "fields": {
-      "first_name": "Honza",
-      "surname": "Baci",
-      "date_of_birth": "2025-04-01",
-      "date_of_death": "2025-04-04",
-      "country": null,
-      "biography": ""
-    }
-  },
-  {
-    "model": "library.author",
-    "pk": 36,
-    "fields": {
-      "first_name": "Honza1",
-      "surname": "Baci1",
-      "date_of_birth": "2025-04-01",
-      "date_of_death": "2025-04-03",
-      "country": null,
-      "biography": ""
-    }
-  },
-  {
     "model": "library.book",
     "pk": 1,
     "fields": {
@@ -491,67 +474,74 @@
     "model": "library.book",
     "pk": 9,
     "fields": {
-      "title_orig": "Mortal Kombat",
-      "title_cz": null,
-      "ISBN": null,
-      "language": null,
-      "number_of_pages": null,
-      "format": null,
-      "year_published": null,
-      "publisher": null,
-      "description": "",
-      "book_type": null,
-      "weight": null,
-      "cover": null,
+      "title_orig": "The Woman in White",
+      "title_cz": "Zena v bielom",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
       "authors": [
-        5
+        3
       ],
-      "genres": []
+      "genres": [
+        1,
+        5
+      ]
     }
   },
   {
     "model": "library.book",
     "pk": 10,
     "fields": {
-      "title_orig": "Kombato mortaloo",
-      "title_cz": null,
-      "ISBN": null,
-      "language": null,
-      "number_of_pages": null,
-      "format": null,
-      "year_published": 12223,
-      "publisher": null,
-      "description": "",
-      "book_type": null,
-      "weight": null,
-      "cover": null,
+      "title_orig": "Twenty Thousand Leagues Under the Sea",
+      "title_cz": "20 tisic mil pod morom",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
       "authors": [
-        36
+        5
       ],
-      "genres": []
+      "genres": [
+        7,
+        8
+      ]
     }
   },
   {
     "model": "library.book",
     "pk": 11,
     "fields": {
-      "title_orig": "Blby a blbsi",
-      "title_cz": null,
-      "ISBN": null,
-      "language": null,
-      "number_of_pages": null,
-      "format": null,
-      "year_published": 2014,
-      "publisher": null,
-      "description": "",
-      "book_type": null,
-      "weight": null,
-      "cover": null,
+      "title_orig": "To the Lighthouse",
+      "title_cz": "K majaku",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
       "authors": [
-        2
+        10
       ],
       "genres": [
-        8
+        1,
+        4
       ]
     }
   },
@@ -559,21 +549,24 @@
     "model": "library.book",
     "pk": 12,
     "fields": {
-      "title_orig": "Janko a marienka",
-      "title_cz": "Bojo",
-      "ISBN": "32131213212321a",
-      "language": "polish",
-      "number_of_pages": 123,
-      "format": "178 x 111",
-      "year_published": 1224,
-      "publisher": "Ja",
-      "description": "Sdfasdfdasfasd.af.d.asdf...aasdfa",
-      "book_type": "Novel",
-      "weight": 123,
-      "cover": "Hard",
-      "authors": [],
+      "title_orig": "Around the World in Eighty Days",
+      "title_cz": "Cesta okolo sveta za 80 dni",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
+      "authors": [
+        11
+      ],
       "genres": [
-        7
+        2,
+        6
       ]
     }
   },
@@ -581,43 +574,74 @@
     "model": "library.book",
     "pk": 13,
     "fields": {
-      "title_orig": "Asdfasdf",
-      "title_cz": null,
-      "ISBN": null,
-      "language": null,
-      "number_of_pages": null,
-      "format": null,
-      "year_published": null,
-      "publisher": null,
-      "description": "",
-      "book_type": null,
-      "weight": null,
-      "cover": null,
-      "authors": [],
-      "genres": []
+      "title_orig": "Othello",
+      "title_cz": "Othello",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
+      "authors": [
+        15
+      ],
+      "genres": [
+        3,
+        6
+      ]
     }
   },
   {
     "model": "library.book",
     "pk": 14,
     "fields": {
-      "title_orig": "Asdfasfasdfa",
-      "title_cz": null,
-      "ISBN": "324324321431243124",
-      "language": null,
-      "number_of_pages": null,
-      "format": null,
-      "year_published": null,
-      "publisher": null,
-      "description": "",
-      "book_type": null,
-      "weight": null,
-      "cover": null,
+      "title_orig": "Treasure Island",
+      "title_cz": "Ostrov pokladov",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
       "authors": [
-        35
+        2
       ],
       "genres": [
-        9
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 15,
+    "fields": {
+      "title_orig": "Catch-22",
+      "title_cz": "Catch-22",
+      "ISBN": "780862464981",
+      "language": "English",
+      "number_of_pages": 327,
+      "format": "299 x 399",
+      "year_published": 1983,
+      "publisher": "Williams-Weiss",
+      "description": "Marriage buy born song soon grow none in. Body form ago safe. Attorney better of development force. Detail sea ever design. Last everything lose staff pull great. Wish rock establish rest purpose series. Teacher how so assume major prove one these. Exactly responsibility understand produce role.",
+      "book_type": "Poetry",
+      "weight": 318,
+      "cover": "Ebook",
+      "authors": [
+        6
+      ],
+      "genres": [
+        5,
+        6
       ]
     }
   },
