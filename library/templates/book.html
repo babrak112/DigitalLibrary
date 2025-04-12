@@ -50,14 +50,36 @@
                         {% endfor %}
                     </ul>
     <br>
-                    <h3>Biography:</h3>
+                    <h3>Description:</h3>
                     <p class="pl-3">{{ book.description }}</p>
+    <br>
+                    <h3>ISBN:</h3>
+                    <p class="pl-3">{{ book.ISBN }}</p>
+    <br>
+                    <h3>Language:</h3>
+                    <p class="pl-3">{{ book.language }}</p>
+    <br>
+                    <h3>Number of pages:</h3>
+                    <p class="pl-3">{{ book.number_of_pages }}</p>
+    <br>
+                    <h3>Format:</h3>
+                    <p class="pl-3">{{ book.format }}</p>
+    <br>
+                    <h3>Book type:</h3>
+                    <p class="pl-3">{{ book.book_type }}</p>
+    <br>
+                    <h3>Weight:</h3>
+                    <p class="pl-3">{{ book.weight }}</p>
+    <br>
+                    <h3>Cover:</h3>
+                    <p class="pl-3">{{ book.cover }}</p>
     <br>
                     <h3>Year of publish:</h3>
                     <p class="pl-3"> {{ book.year_published }}</p>
     <br>
                     <h3>Publisher:</h3>
                     <p class="pl-3"> {{ book.publisher }}</p>
+    <br>
                 {% if user.is_authenticated %}
                     <a href=" {%  url 'book-update' book.id %}" class="btn btn-primary">Update</a>
                     <a href=" {%  url 'book-delete' book.id %}" class="btn btn-danger">Delete</a>
