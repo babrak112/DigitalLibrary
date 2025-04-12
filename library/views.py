@@ -1,3 +1,6 @@
+import os
+
+import requests
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.context_processors import request
@@ -252,9 +255,17 @@ def search(request):
             books_title_orig = Book.objects.filter(title_orig__contains=search_string)
             authors_first_name = Author.objects.filter(first_name__contains=search_string)
 
+            url = (f"https://www.googleapis.com/customsearch/v1"
+                   f"?key={os.getenv('API_KEY')}"
+                   f"&cx={os.getenv('CX')}"
+                   f"&q={search_string}")
+            g_request = requests.get(url)
+            g_json = g_request.json()
+
             context = {'search': search_string,
                        'books_title_orig': books_title_orig,
-                       'authors_first_name': authors_first_name
+                       'authors_first_name': authors_first_name,
+                       'g_json': g_json,
                        }
             return render(request, 'search.html', context)
     return render(request, 'home.html')

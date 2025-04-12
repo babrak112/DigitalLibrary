@@ -43,6 +43,23 @@
                     {% empty %}
                         No results for  {{ search }}
                     {% endfor %}
+                <br>
+                <br>
+
+                <ul>
+                    {% if g_json %}
+                    <h1>Výsledky vyhledávání na Knihy Dobrovský.cz</h1>
+                        {% for g_result in g_json.items %}
+                        <li>
+                            <a href="{{ g_result.link }}" target="_blank" rel="noopener noreferrer">
+                                {{ g_result.title }}
+                            </a>
+                            <br>
+                        {% endfor %}
+                        </li>
+                    {% endif %}
+                </ul>
+
                 </ul>
         </div>
     </div>
