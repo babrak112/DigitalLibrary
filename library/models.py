@@ -31,7 +31,8 @@ class Author(Model):
 
     def __str__(self):
         if self.date_of_birth:
-            return f"{self.first_name} {self.surname} ({self.date_of_birth})"
+            formatted_date = self.date_of_birth.strftime("%d.%m.%Y")
+            return f"{self.first_name} {self.surname} ({formatted_date})"
         return f"{self.first_name} {self.surname}"
 
     def date_of_birth_eu(self):
