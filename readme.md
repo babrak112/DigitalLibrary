@@ -3,8 +3,8 @@
 ## Project description
 Digital Library is an application developed in Django in Python, which will allow user to 
 search, filter, sort books in SQLite database, get information on Authors and their biography.
-It allows users with specific rights to add/edit/delete books, insert comments to books which
-will serve other readers as recommendations.
+It allows users with specific rights to add/edit/delete books, along with their images.
+
 
 
 ## Main Functionalities:
@@ -18,7 +18,7 @@ who is able to add/delete/edit books/authors`
 
 - `add, delete, edit books in database`
 - `add, delete, edit authors in database`
-- `api to heureka - user can see where to buy the book and for what price`
+- `api to Google - user can see where to buy the book and for what price in webname Knihy Dobrovský.cz`
 
 ### Book ratings and reviews
 
@@ -46,7 +46,7 @@ who is able to add/delete/edit books/authors`
 
 - `List of books`(ISBN, genre, language, 
 number of pages, format, date of publish, publisher, description, 
-book case, weight, translation, rating)
+book case, weight, translation)
 
 - `Book detail`
 - `sort books by:`
@@ -118,9 +118,8 @@ book case, weight, translation, rating)
   - [] description
   - [] book case
   - [] weight
-  - [] review
   - [] cover
-  - [] where to buy (good to have, heureka api - https://sluzby.heureka.cz/napoveda/marketplace-api/)
+  - [] where to buy on Knihy Dobrovský.cz
   
 
 
