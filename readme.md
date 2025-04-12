@@ -41,7 +41,7 @@ who is able to add/delete/edit books/authors`
 
 ## Entity-Relationship Diagram
 
-[ER_diagram.pdf](Files/ER_diagram.pdf)
+![ER_Diagram.png](Files/ER_Diagram.png)
 
 
 - `List of books`(ISBN, genre, language, 
