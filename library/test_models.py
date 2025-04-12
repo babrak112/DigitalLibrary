@@ -26,7 +26,7 @@ class AuthorModelTest(TestCase):
             date_of_birth=date(1907, 11, 14),
             country=self.country
         )
-        self.assertEqual(str(author), "Astrid Lindgren (1907-11-14)")
+        self.assertEqual(str(author), "Astrid Lindgren (14.11.1907)")
         self.assertEqual(repr(author), "Author(first_name=Astrid, surname=Lindgren)")
 
     def test_author_str_without_dob(self):
