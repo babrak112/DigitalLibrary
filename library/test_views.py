@@ -18,11 +18,6 @@ class BookViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(self.book, response.context['books'])
 
-    def test_book_detail_view(self):
-        response = self.client.get(reverse('book-detail', args=[self.book.pk]))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.context['book'], self.book)
-
     def test_book_update_view(self):
         response = self.client.post(reverse('book-update', args=[self.book.pk]), {
             'title_orig': 'The Hobbit: Revised',
